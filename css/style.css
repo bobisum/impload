@@ -50,3 +50,8 @@ html, body {
 
 body {
   font-size: 62.5%; }
+
+#canvas {
+  width: 400px;
+  height: 400px;
+  background: tomato; }

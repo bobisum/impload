@@ -12,7 +12,40 @@
 	</head>
 	<body>
 
+		<!-- content -->
+		<canvas id="canvas"></canvas>
+		<!-- content end -->
+		
 
-	
+		<!-- scripts -->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script>
+		$(function() {
+			var test_canvas = document.getElementById('canvas'); // select canvas element
+
+			var test_context = test_canvas.getContext('2d'); // set canvas context 2d or webgl
+
+			var test_img = "https://fbcdn-sphotos-d-a.akamaihd.net/hphotos-ak-ash3/1004516_558445970870903_1338732860_n.jpg"; // test image on the web
+			console.log(test_img);
+
+			var test_imgObj = new Image(); // image object
+
+			// draw image params: 
+			// img src
+			// x pixels for clip start, y pixels for clip start
+			// width of cliped, height of cliped
+			// x coordinates to place img in canvas, y coordinates to place img in canvas
+			// width of the img, height of the img
+			test_imgObj.onload = function() {
+				console.log(test_imgObj.width);
+				console.log(test_imgObj.height);
+				test_context.drawImage(test_imgObj, 0, 0, $(test_canvas).width(), $(test_canvas).height());
+			};
+
+			test_imgObj.src = test_img; // src for the image object
+		});
+		</script>
+		<!-- scripts end -->
+
 	</body>
 </html>
