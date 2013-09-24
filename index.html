@@ -13,10 +13,13 @@
 	<body>
 
 		<!-- content -->
+		<div id="container">
+			<input id="file_upload" type="file" name="images[]" placeholder="Select files..." multiple>
+			<ul id="list"></ul>			
+		</div>
+		
+		<!-- <canvas id="canvas"></canvas> -->
 
-		<canvas id="canvas"></canvas>
-
-		<input id="file_upload" type="file" name="images[]" placeholder="Select files..." multiple>
 		<!-- content end -->
 		
 
@@ -24,14 +27,14 @@
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script>
 		$(function() {
-			var test_canvas = document.getElementById('canvas'); // select canvas element
+			// var test_canvas = document.getElementById('canvas'); // select canvas element
 
-			var test_context = test_canvas.getContext('2d'); // set canvas context 2d or webgl
+			// var test_context = test_canvas.getContext('2d'); // set canvas context 2d or webgl
 
-			var test_img = "https://fbcdn-sphotos-d-a.akamaihd.net/hphotos-ak-ash3/1004516_558445970870903_1338732860_n.jpg"; // test image on the web
-			console.log(test_img);
+			// var test_img = "https://fbcdn-sphotos-d-a.akamaihd.net/hphotos-ak-ash3/1004516_558445970870903_1338732860_n.jpg"; // test image on the web
+			// console.log(test_img);
 
-			var test_imgObj = new Image(); // image object
+			// var test_imgObj = new Image(); // image object
 
 			// draw image params: 
 			// img src
@@ -45,10 +48,27 @@
 			// 	test_context.drawImage(test_imgObj, 0, 0, $(test_canvas).width(), $(test_canvas).height());
 			// };
 
-			test_imgObj.src = test_img; // src for the image object
+			// test_imgObj.src = test_img; // src for the image object
+
+			function create_input(id) {
+				return "<input id='id_" + id + "' type='file' name='image" + id + "'>";
+			}
+
+			var test = [];
 
 			$("#file_upload").change(function() {
 				files = document.getElementById('file_upload').files;
+
+				console.log(files);
+
+				if(files.length > 0){
+					for(file in files){
+						test.push(files[file]);
+					}
+				}
+
+				console.log(files);
+				console.log(test);
 			});
 		});
 		</script>

@@ -14,3 +14,13 @@ body {
 	height: 400px;
 	background: tomato;
 }
+
+#container {
+	width: 900px;
+	min-height: 250px;
+	@include box-sizing(border-box);
+	border: 2px solid #cccccc;
+	background: #eeeeee;
+	margin: 30px auto 0;
+	padding: 20px;
+}
