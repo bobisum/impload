@@ -1,0 +1,13 @@
+1. single upload
+	
+	upload image
+	display in block
+	crop displayed from
+	file name
+	remove / change
+
+
+2. muliple upload
+
+	upload images - in modal window or in a container (choosen by the user)
+	for each display img, name and remove button.
