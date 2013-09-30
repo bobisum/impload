@@ -14,8 +14,11 @@
 
 		<!-- content -->
 		<div id="container">
-			<input id="file_upload" type="file" name="images[]" placeholder="Select files..." multiple>
-			<ul id="list"></ul>			
+			<form action="" id="test_form">
+				<input id="file_upload" type="file" name="images[]" placeholder="Select files..." multiple>
+				<ul id="list"></ul>
+				<input type="submit">
+			</form>
 		</div>
 		
 		<!-- <canvas id="canvas"></canvas> -->
@@ -56,19 +59,40 @@
 
 			var test = [];
 
-			$("#file_upload").change(function() {
-				files = document.getElementById('file_upload').files;
+			// $("#file_upload").change(function() {
+			// 	file = document.getElementById('file_upload');
+				
+			// 	var data = new FormData();
+			// 	console.log(data);
 
-				console.log(files);
+			// 	data.append('asdasd', $('#file_upload')[0].files[0]);
 
-				if(files.length > 0){
-					for(file in files){
-						test.push(files[file]);
-					}
-				}
+			// 	console.log(data);
 
-				console.log(files);
-				console.log(test);
+			// 	// if(files.length > 0){
+			// 	// 	for(file in files){
+			// 	// 		test.push(files[file]);
+			// 	// 	}
+			// 	// }
+
+			// 	// console.log(files);
+			// 	// console.log(test);
+			// });
+
+			$('#test_form').submit(function(e) {
+				var data, xhr;
+
+				data = new FormData();
+				data.append('file', document.getElementById('file_upload').files[0] );
+				data.append('file', document.getElementById('file_upload').files[1] );
+
+				xhr = new XMLHttpRequest();
+
+				xhr.open( 'POST', 'http://localhost:8080', true );
+				xhr.onreadystatechange = function ( response ) {};
+				xhr.send( data );
+
+				e.preventDefault();
 			});
 		});
 		</script>
